@@ -6,6 +6,8 @@ import { GoogleGenerativeAI } from "@google/generative-ai"; // Correct import
 // import SliderBar from "./Sliderbar.js";
 // import axios from 'axios'
 const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+console.log("Using backend:",BASE_URL);
+
 
 function Page() {
   const [input, setInput] = useState(""); //taking input from the user
