@@ -5,6 +5,7 @@ import Navbar from "./Navbar.js";
 import { GoogleGenerativeAI } from "@google/generative-ai"; // Correct import
 // import SliderBar from "./Sliderbar.js";
 // import axios from 'axios'
+const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
 
 function Page() {
   const [input, setInput] = useState(""); //taking input from the user
@@ -51,7 +52,7 @@ function Page() {
     const formData = new FormData();
     formData.append("file", file);
 
-    const res = await fetch("http://localhost:5000/generatefromfile", {
+    const res = await fetch(`${BASE_URL}/generatefromfile`, {
       method: "POST",
       body: formData,
     });
@@ -96,7 +97,7 @@ const handleClick = async () => {
     const startTime = Date.now();
 
     try {
-      const res = await fetch("http://localhost:5000/generatefromtext", {
+      const res = await fetch(`${BASE_URL}/generatefromtext`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
