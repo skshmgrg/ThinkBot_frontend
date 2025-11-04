@@ -22,6 +22,7 @@ function Page() {
   const handleChangeTemp = (e) => {
     setValue(e.target.value);
   };
+  
 
   const handleToggleClick = () => {
     setActiveComponent("sliderbarcomponent");

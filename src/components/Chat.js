@@ -25,11 +25,18 @@ export const Chat = () => {
         ref={containerRef}
         className="flex flex-col max-h-[78vh] overflow-y-auto overflow-x-hidden w-full mt-3"
       >
-        {global.messages.map((value, index) =>
-          value.type === "prompt" ? (
-            <UserMessage key={index} message={value.text} />
-          ) : (
-            <ResponseMessage key={index} message={value.text} />
+          {global.messages.length === 0 ? (
+          <div className="flex flex-col items-center justify-center pt-40 h-full text-gray-400">
+            <p className="text-lg font-medium">Start chatting with ThinkBot 🤖</p>
+            <p className="text-sm">Type a message or upload a file to begin</p>
+          </div>
+        ) : (
+          global.messages.map((msg, index) =>
+            msg.type === "prompt" ? (
+              <UserMessage key={index} message={msg.text} />
+            ) : (
+              <ResponseMessage key={index} message={msg.text} />
+            )
           )
         )}
       </div>
